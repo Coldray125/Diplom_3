@@ -18,7 +18,6 @@ public class PostAuthUser {
                 .body(object)
                 .post(USER_AUTH)
                 .then()
-                .statusCode(SC_ACCEPTED)
                 .extract()
                 .response();
     }

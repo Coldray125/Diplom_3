@@ -1,5 +1,6 @@
 package site.stellarburgers;
 
+import io.qameta.allure.junit4.DisplayName;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -21,21 +22,27 @@ public class burgerConstructorTests {
     }
 
     @Test
+    @DisplayName("Проверка работы переходы к разделу \"Булки\"")
     public void bunsButtonSelected() {
         mainPage.clickSauceButton();
         mainPage.clickBunsButton();
-        Assert.assertTrue($(mainPage.bunsSection).isDisplayed());
+        String tab = mainPage.activeConstructorTab().innerText();
+        Assert.assertEquals("Булки", tab);
     }
 
     @Test
+    @DisplayName("Проверка работы переходы к разделу \"Соусы\"")
     public void sauceButtonSelected() {
         mainPage.clickSauceButton();
-        Assert.assertTrue($(mainPage.sauceSection).isDisplayed());
+        String tab = mainPage.activeConstructorTab().innerText();
+        Assert.assertEquals("Соусы", tab);
     }
 
     @Test
+    @DisplayName("Проверка работы переходы к разделу \"Начинки\"")
     public void fillingButtonSelected() {
         mainPage.clickFillingButton();
-        Assert.assertTrue($(mainPage.fillingSection).isDisplayed());
+        String tab = mainPage.activeConstructorTab().innerText();
+        Assert.assertEquals("Начинки", tab);
     }
 }

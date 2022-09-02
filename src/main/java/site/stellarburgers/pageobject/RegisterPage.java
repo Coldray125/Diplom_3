@@ -1,6 +1,7 @@
 package site.stellarburgers.pageobject;
 
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
@@ -24,6 +25,9 @@ public class RegisterPage {
 
     @FindBy(how = How.XPATH, using = "//*[contains(text(),'Войти')][@class='Auth_link__1fOlj']")
     private SelenideElement bottomLoginButton;
+
+    @FindBy(how = How.XPATH, using = "//*[contains (text(), 'Некорректный пароль')]")
+    private SelenideElement errorPasswordField;
 
     public void fillCredentials(HashMap<String, String> data) {
         nameField.shouldBe(visible).sendKeys(data.get("name"));
@@ -49,5 +53,10 @@ public class RegisterPage {
 
     public void clickBottomLoginButton() {
         bottomLoginButton.shouldBe(visible).click();
+    }
+
+    @Step("Получить текст об ошибке")
+    public boolean getPasswordError() {
+        return errorPasswordField.shouldBe(visible).isDisplayed();
     }
 }

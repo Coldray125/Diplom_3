@@ -13,7 +13,6 @@ public class DeleteUser {
     public void UserDelete(String accessToken) {
         given()
                 .spec(BurgerURL)
-                .header("Content-type", "application/json")
                 .header("Authorization", accessToken)
                 .when()
                 .delete(USER_INFO)

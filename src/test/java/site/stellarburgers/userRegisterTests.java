@@ -1,5 +1,6 @@
 package site.stellarburgers;
 
+import io.qameta.allure.junit4.DisplayName;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.After;
 import org.junit.Assert;
@@ -16,8 +17,8 @@ import site.stellarburgers.pageobject.RegisterPage;
 
 import java.util.HashMap;
 
-import static com.codeborne.selenide.Selenide.open;
-import static com.codeborne.selenide.Selenide.page;
+import static com.codeborne.selenide.Selenide.*;
+import static org.junit.Assert.assertTrue;
 
 public class userRegisterTests {
 
@@ -30,8 +31,8 @@ public class userRegisterTests {
 
     @Before
     public void configurationSetup() {
-        data = new RandomData().randomCredentials();
         new Config().chrome();
+        data = new RandomData().randomCredentials();
         pageHeader = page(PageHeader.class);
         mainPage = page(MainPage.class);
         registerPage = page(RegisterPage.class);
@@ -48,6 +49,7 @@ public class userRegisterTests {
     }
 
     @Test
+    @DisplayName("Успешная регистрация")
     public void registerUserValidData() {
         pageHeader.clickPersonalAccountButton();
         loginPage.clickRegisterButton();
@@ -57,12 +59,13 @@ public class userRegisterTests {
     }
 
     @Test
+    @DisplayName("Проверка ошибки для некорректного пароля. Минимальный пароль — шесть символов")
     public void registerUserWrongPassword() {
         pageHeader.clickPersonalAccountButton();
         loginPage.clickRegisterButton();
         data.put("password", RandomStringUtils.randomAlphanumeric(5));
         registerPage.fillCredentials(data);
         registerPage.clickRegisterButton();
-        Assert.assertNull(userBuilder.AuthUserGetToken(data));
+        assertTrue(registerPage.getPasswordError());
     }
 }
