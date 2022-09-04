@@ -5,6 +5,7 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
+import java.time.Duration;
 import java.util.HashMap;
 
 import static com.codeborne.selenide.Condition.visible;
@@ -35,28 +36,33 @@ public class RegisterPage {
         passwordField.shouldBe(visible).sendKeys(data.get("password"));
     }
 
+    @Step("Заполнение поля \"Имя\" в форме регистрации")
     public void fillName(String name) {
         nameField.sendKeys(name);
     }
 
+    @Step("Заполнение поля \"Почта\" в форме регистрации")
     public void fillEmail(String email) {
         emailField.sendKeys(email);
     }
 
+    @Step("Заполнение поля \"Пароль\" в форме регистрации")
     public void fillPassword(String password) {
         passwordField.sendKeys(password);
     }
 
+    @Step("Заполнение поля \"Пароль\" в форме регистрации")
     public void clickRegisterButton() {
         registerButton.shouldBe(visible).click();
     }
 
+    @Step("Нажатие кнопки \"Зарегистрироваться\" в форме регистрации")
     public void clickBottomLoginButton() {
         bottomLoginButton.shouldBe(visible).click();
     }
 
-    @Step("Получить текст об ошибке")
+    @Step("Получить текст об ошибке в форме регистрации")
     public boolean getPasswordError() {
-        return errorPasswordField.shouldBe(visible).isDisplayed();
+        return errorPasswordField.shouldBe(visible, Duration.ofSeconds(3)).isDisplayed();
     }
 }

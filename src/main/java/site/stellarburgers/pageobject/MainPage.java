@@ -1,6 +1,7 @@
 package site.stellarburgers.pageobject;
 
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
@@ -23,18 +24,22 @@ public class MainPage {
     @FindBy(how = How.XPATH, using = "//*[@class='tab_tab__1SPyG tab_tab_type_current__2BEPc pt-4 pr-10 pb-4 pl-10 noselect']")
     private SelenideElement activeConstructorTab;
 
+    @Step("Нажатие на кнопку \"Войти в аккаунт\" на главной странице")
     public void clickEnterAccountButton() {
         enterAccountButton.shouldBe(visible).click();
     }
 
+    @Step("Нажатие на кнопку \"Булки\" в конструкторе на главной странице")
     public void clickBunsButton() {
         bunsButton.shouldBe(visible).click();
     }
 
+    @Step("Нажатие на кнопку \"Соусы\" в конструкторе на главной странице")
     public void clickSauceButton() {
         sauceButton.shouldBe(visible).click();
     }
 
+    @Step("Нажатие на кнопку \"Начинки\" в конструкторе на главной странице")
     public void clickFillingButton() {
         fillingButton.shouldBe(visible).click();
     }

@@ -44,7 +44,8 @@ public class pageTransitionTests {
 
     @After
     public void deleteUser() {
-        userBuilder.deleteUserWithAccessToken(userBuilder.AuthUserGetToken(data));
+        String token = userBuilder.AuthUserGetToken(data);
+        userBuilder.deleteUserWithAccessToken(token);
     }
 
     @Test

@@ -42,7 +42,7 @@ public class userLoginTests {
     @After
     public void deleteUser() {
         if (data.get("token") != null) {
-            userBuilder.deleteUserWithAccessToken(userBuilder.AuthUserGetToken(data));
+            userBuilder.deleteUserWithAccessToken(data.get("token"));
         }
     }
 

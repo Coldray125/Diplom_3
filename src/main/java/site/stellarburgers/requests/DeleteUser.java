@@ -9,7 +9,7 @@ import static site.stellarburgers.configuration.ListURL.BurgerURL;
 
 public class DeleteUser {
 
-    @Step("Отправка запроса на endpoint DELETE /api/auth/login для авторизации учетной записи пользователя")
+    @Step("Отправка запроса на endpoint DELETE /api/auth/login для удаления учетной записи пользователя")
     public void UserDelete(String accessToken) {
         given()
                 .spec(BurgerURL)

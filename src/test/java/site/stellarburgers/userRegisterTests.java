@@ -18,7 +18,9 @@ import site.stellarburgers.pageobject.RegisterPage;
 import java.util.HashMap;
 
 import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.WebDriverConditions.url;
 import static org.junit.Assert.assertTrue;
+import static site.stellarburgers.configuration.ListURL.burgerLoginURL;
 
 public class userRegisterTests {
 
@@ -55,7 +57,7 @@ public class userRegisterTests {
         loginPage.clickRegisterButton();
         registerPage.fillCredentials(data);
         registerPage.clickRegisterButton();
-        Assert.assertNotNull(userBuilder.AuthUserGetToken(data));
+        webdriver().shouldHave(url(burgerLoginURL));
     }
 
     @Test
