@@ -16,7 +16,7 @@ import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverConditions.url;
 import static site.stellarburgers.configuration.ListURL.burgerMainURL;
 
-public class userLoginTests {
+public class UserLoginTests {
 
     UserBuilder userBuilder = new UserBuilder();
     PageHeader pageHeader;

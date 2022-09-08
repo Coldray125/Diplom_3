@@ -1,6 +1,5 @@
 package site.stellarburgers;
 
-import com.codeborne.selenide.conditions.webdriver.Url;
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.After;
 import org.junit.Before;
@@ -17,7 +16,7 @@ import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverConditions.url;
 import static site.stellarburgers.configuration.ListURL.*;
 
-public class pageTransitionTests {
+public class PageTransitionTests {
 
     UserBuilder userBuilder = new UserBuilder();
     PageHeader pageHeader;
@@ -44,8 +43,7 @@ public class pageTransitionTests {
 
     @After
     public void deleteUser() {
-        String token = userBuilder.AuthUserGetToken(data);
-        userBuilder.deleteUserWithAccessToken(token);
+        userBuilder.deleteUserWithAccessToken(userBuilder.AuthUserGetToken(data));
     }
 
     @Test

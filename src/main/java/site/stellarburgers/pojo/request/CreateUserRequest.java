@@ -1,4 +1,4 @@
-package site.stellarburgers.Pojo.request;
+package site.stellarburgers.pojo.request;
 
 public class CreateUserRequest {
 

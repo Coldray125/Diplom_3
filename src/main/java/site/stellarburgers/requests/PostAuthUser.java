@@ -4,7 +4,6 @@ import io.qameta.allure.Step;
 import io.restassured.response.Response;
 
 import static io.restassured.RestAssured.given;
-import static org.apache.http.HttpStatus.SC_ACCEPTED;
 import static site.stellarburgers.configuration.EndPointList.USER_AUTH;
 import static site.stellarburgers.configuration.ListURL.BurgerURL;
 

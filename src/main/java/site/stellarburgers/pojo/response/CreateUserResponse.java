@@ -1,4 +1,4 @@
-package site.stellarburgers.Pojo.response;
+package site.stellarburgers.pojo.response;
 
 public class CreateUserResponse {
     private String refreshToken;

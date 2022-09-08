@@ -3,7 +3,6 @@ package site.stellarburgers;
 import io.qameta.allure.junit4.DisplayName;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.After;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import site.stellarburgers.builders.UserBuilder;
@@ -22,7 +21,7 @@ import static com.codeborne.selenide.WebDriverConditions.url;
 import static org.junit.Assert.assertTrue;
 import static site.stellarburgers.configuration.ListURL.burgerLoginURL;
 
-public class userRegisterTests {
+public class UserRegisterTests {
 
     UserBuilder userBuilder = new UserBuilder();
     PageHeader pageHeader;

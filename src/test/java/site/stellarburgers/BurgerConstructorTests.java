@@ -10,7 +10,7 @@ import site.stellarburgers.pageobject.MainPage;
 
 import static com.codeborne.selenide.Selenide.*;
 
-public class burgerConstructorTests {
+public class BurgerConstructorTests {
 
     MainPage mainPage;
 
